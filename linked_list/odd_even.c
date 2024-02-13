@@ -19,7 +19,7 @@ struct ListNode {
 
 struct ListNode* oddEvenList(struct ListNode* head) {
     if (!head || !head->next) {
-        return head; // Handle list with 0 or 1 nodes
+        return head;
     }
 
     struct ListNode *odd = head, *even = head->next, *evenHead = even;
@@ -38,6 +38,7 @@ struct ListNode* oddEvenList(struct ListNode* head) {
 
 
 /* anouther way to solve it */
+
 struct ListNode* oddEvenList(struct ListNode* head) {
     struct ListNode *odd, *even, *oddN, *evenN, *ne;
     int i = 1;
