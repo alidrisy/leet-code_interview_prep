@@ -135,6 +135,34 @@ void myLinkedListFree(MyLinkedList* obj) {
 }
 
 
+void printMyLinkedNode(MyLinkedListNode *obj)
+{
+    MyLinkedListNode *cur;
+
+    cur = obj;
+    while (cur)
+    {
+        printf("%d\n", cur->val);
+        cur = cur->next;
+    }
+}
+
+void reverseMyLinkedList(MyLinkedList *obj)
+{
+    MyLinkedListNode *new, *ne;
+
+    new = NULL;
+
+    while(obj->head)
+    {
+        ne = obj->head->next;
+        obj->head->next = new;
+        new = obj->head;
+        obj->head = ne;
+    }
+    obj->head = new;
+}
+
 void printMyLinkedList(MyLinkedList *obj)
 {
     int i = 0;
@@ -162,6 +190,9 @@ int main(void)
     myLinkedListAddAtTail(head, 98);
     myLinkedListAddAtTail(head, 402);
     myLinkedListAddAtTail(head, 1024);
+    printMyLinkedList(head);
+    reverseMyLinkedList(head);
+    printf("-----------------\n");
     printMyLinkedList(head);
     myLinkedListFree(head);
     return (0);
